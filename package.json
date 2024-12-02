@@ -1,0 +1,20 @@
+{
+  "name": "learn-ai-tv",
+  "version": "1.0.0",
+  "description": "A modern, responsive Learning Management System theme for Hugo. Features include course management, category organization, search functionality, and a mobile-friendly design.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./themes/lms/assets/css/main.css -o ./themes/lms/static/css/main.css --watch",
+    "build": "tailwindcss -i ./themes/lms/assets/css/main.css -o ./themes/lms/static/css/main.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
+  }
+}

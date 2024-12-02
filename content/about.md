@@ -1,5 +1,6 @@
 ---
 title: "About Learn AI TV"
+layout: "about"
 description: "Your premier destination for AI education and insights"
 date: 2024-01-01
 team:
