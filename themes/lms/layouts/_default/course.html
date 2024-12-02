@@ -7,41 +7,41 @@
             <p class="text-lg text-gray-600 mb-4">{{ .Description }}</p>
             
             <!-- Course Meta Info -->
-            <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+            <div class="flex flex-wrap gap-6 text-sm text-gray-600 bg-gray-50 p-4 rounded-lg">
                 {{ with .Params.duration }}
                 <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span>{{ . }}</span>
+                    <span class="font-medium">Duration: {{ . }}</span>
                 </div>
                 {{ end }}
                 
                 {{ with .Params.level }}
                 <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
-                    <span>{{ . }}</span>
+                    <span class="font-medium">Level: {{ . }}</span>
                 </div>
                 {{ end }}
                 
                 {{ if .Params.sections }}
                 <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
-                    <span>{{ len .Params.sections }} Lessons</span>
+                    <span class="font-medium">{{ len .Params.sections }} Lessons</span>
                 </div>
                 {{ end }}
-                
+            </div>
+
+            <!-- Categories -->
+            <div class="flex flex-wrap gap-2 mt-4">
                 {{ range .Params.categories }}
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-                    </svg>
-                    <span>{{ . }}</span>
-                </div>
+                <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">
+                    {{ . }}
+                </span>
                 {{ end }}
             </div>
         </div>
