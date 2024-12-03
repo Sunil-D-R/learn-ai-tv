@@ -67,7 +67,7 @@
         
         <!-- Regular Courses (Loaded Incrementally) -->
         {{ range $index, $course := $regular }}
-        <div class="course-card transform hover:scale-105 transition-all duration-200 h-full{{ if ge $index 9 }} hidden{{ end }}" data-categories="{{ delimit .Params.categories "," }}" data-index="{{ $index }}">
+        <div class="course-card transform hover:scale-105 transition-all duration-200 h-full" data-categories="{{ delimit .Params.categories "," }}" data-index="{{ $index }}">
             <a href="{{ .RelPermalink }}" class="block bg-white rounded-lg shadow-md overflow-hidden h-full flex flex-col">
                 {{ if .Params.thumbnail }}
                 <div class="aspect-w-16 aspect-h-9">
@@ -91,34 +91,50 @@
         {{ end }}
     </div>
 
-    <!-- Load More Button -->
-    {{ $regularCount := len $regular }}
-    {{ if gt $regularCount 9 }}
-    <div class="text-center mt-12">
-        <button 
-            id="load-more"
-            class="bg-primary-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors duration-200"
-            onclick="loadMoreCourses()">
-            Load More Courses
-        </button>
-    </div>
-    {{ end }}
+    <!-- Infinite Scroll Sentinel -->
+    <div id="scroll-sentinel" class="h-4 w-full"></div>
 </div>
 
-<!-- Category Filter and Load More Script -->
+<!-- Category Filter and Infinite Scroll Script -->
 <script>
 let currentlyShown = 9;
 const coursesPerLoad = 9;
-const totalRegularCourses = {{ $regularCount }};
+const totalRegularCourses = {{ len (where .Site.RegularPages "Type" "courses") }};
+let isLoading = false;
+let currentCategory = 'all';
+
+// Create Intersection Observer for infinite scroll
+const sentinel = document.getElementById('scroll-sentinel');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !isLoading) {
+            loadMoreCourses();
+        }
+    });
+}, {
+    root: null,
+    rootMargin: '200px',
+    threshold: 0.1
+});
+
+observer.observe(sentinel);
 
 function loadMoreCourses() {
+    if (isLoading) return;
+    isLoading = true;
+
     const cards = document.querySelectorAll('.course-card[data-index]');
     let shown = 0;
     let newlyShown = 0;
     
     cards.forEach(card => {
         const index = parseInt(card.dataset.index);
-        if (index < currentlyShown + coursesPerLoad && card.style.display !== 'none') {
+        const categories = card.dataset.categories.split(',');
+        
+        if (index >= currentlyShown && 
+            index < currentlyShown + coursesPerLoad && 
+            (currentCategory === 'all' || categories.includes(currentCategory)) &&
+            card.style.display !== 'none') {
             card.classList.remove('hidden');
             newlyShown++;
         }
@@ -128,17 +144,14 @@ function loadMoreCourses() {
     });
     
     currentlyShown += coursesPerLoad;
-    
-    // Hide the load more button if we've shown all courses
-    if (shown >= totalRegularCourses) {
-        document.getElementById('load-more').style.display = 'none';
-    }
+    isLoading = false;
 }
 
 function filterCourses(category) {
+    currentCategory = category;
+    currentlyShown = 9; // Reset pagination when filtering
     const courseCards = document.querySelectorAll('.course-card');
     const filterButtons = document.querySelectorAll('.category-filter');
-    currentlyShown = 9; // Reset pagination when filtering
     
     // Update active button state
     filterButtons.forEach(button => {
@@ -171,12 +184,6 @@ function filterCourses(category) {
             card.style.display = 'none';
         }
     });
-    
-    // Show/hide load more button based on filtered results
-    const loadMoreButton = document.getElementById('load-more');
-    if (loadMoreButton) {
-        loadMoreButton.style.display = visibleCount > 9 ? 'inline-block' : 'none';
-    }
 }
 </script>
 {{ end }}
