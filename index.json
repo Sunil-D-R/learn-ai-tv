@@ -2,7 +2,7 @@
     {
         "title": "Anthropic's Model Context Protocol: The Future of AI Tool Integration",
         "description": "Explore Anthropic's innovative Model Context Protocol (MCP), a groundbreaking approach for integrating external tools and data into AI workflows. Learn how this protocol paves the way for versatile AI agents and tool interoperability.",
-        "permalink": "/courses/anthropic-agent-protocol/",
+        "permalink": "https://sunil-d-r.github.io/learn-ai-tv/courses/anthropic-agent-protocol/",
         "thumbnail": "http://i3.ytimg.com/vi/8mU2OeOCIrE/hqdefault.jpg",
         "categories": ["Automation"],
         "tags": ["AI","Anthropic","Model Context Protocol","MCP","Claude"]
@@ -10,7 +10,7 @@
     {
         "title": "Scrape, Analyze, and Personalize: A Comprehensive Workflow",
         "description": "Learn how to scrape websites, analyze their data, and craft highly personalized emails using a powerful workflow.",
-        "permalink": "/courses/scrape-analyze-and-personalize-a-comprehensive-workflow/",
+        "permalink": "https://sunil-d-r.github.io/learn-ai-tv/courses/scrape-analyze-and-personalize-a-comprehensive-workflow/",
         "thumbnail": "http://i3.ytimg.com/vi/8VICZS9tSVo/hqdefault.jpg",
         "categories": ["Web scraping","Automation","B2B strategies"],
         "tags": ["web scraping","automation","email","personalization","workflow"]
