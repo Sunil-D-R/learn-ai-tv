@@ -1,0 +1,32 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "LMS Platform"
+theme = "lms"
+
+[params]
+  description = "A modern learning management system"
+  # logo = "/images/logo.png"
+  
+  [params.newsletter]
+    enabled = true
+    # Custom newsletter HTML/JS code
+    # Leave empty to use default form
+    customCode = ""
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  difficulty = "difficulties"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
