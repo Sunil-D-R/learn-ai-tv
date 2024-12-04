@@ -227,9 +227,12 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        query = query.toLowerCase();
         const results = searchIndex.filter(item => 
-            item.title.toLowerCase().includes(query.toLowerCase()) ||
-            item.description.toLowerCase().includes(query.toLowerCase())
+            item.title.toLowerCase().includes(query) ||
+            item.description.toLowerCase().includes(query) ||
+            (item.categories && item.categories.some(cat => cat.toLowerCase().includes(query))) ||
+            (item.tags && item.tags.some(tag => tag.toLowerCase().includes(query)))
         );
 
         displayResults(results);
@@ -242,8 +245,35 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             searchResults.innerHTML = results.map(result => `
                 <a href="${result.permalink}" class="block p-4 hover:bg-gray-50">
-                    <div class="font-medium text-gray-900">${result.title}</div>
-                    <div class="text-sm text-gray-500">${result.description}</div>
+                    <div class="flex items-start space-x-4">
+                        ${result.thumbnail ? `
+                            <div class="flex-shrink-0">
+                                <img src="${result.thumbnail}" alt="${result.title}" class="w-24 h-16 object-cover rounded">
+                            </div>
+                        ` : ''}
+                        <div class="flex-grow">
+                            <div class="font-medium text-gray-900">${result.title}</div>
+                            <div class="text-sm text-gray-500 mt-1">${result.description}</div>
+                            ${result.categories && result.categories.length > 0 ? `
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    ${result.categories.map(category => `
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary-100 text-primary-800">
+                                            ${category}
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                            ${result.tags && result.tags.length > 0 ? `
+                                <div class="flex flex-wrap gap-2 mt-1">
+                                    ${result.tags.map(tag => `
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                                            #${tag}
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
                 </a>
             `).join('');
         }
@@ -257,15 +287,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     document.addEventListener('click', (e) => {
-        if (!searchResults.contains(e.target) && e.target !== searchInput) {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
             searchResults.classList.add('hidden');
         }
     });
 
     
-    searchInput.addEventListener('focus', () => {
-        if (searchInput.value.trim()) {
-            searchResults.classList.remove('hidden');
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            searchResults.classList.add('hidden');
         }
     });
 });
