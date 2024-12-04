@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Automation on LMS Platform</title>
-    <link>https://sunil-d-r.github.io/learn-ai-tv/categories/automation/</link>
+    <link>/learn-ai-tv/categories/automation/</link>
     <description>Recent content in Automation on LMS Platform</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://sunil-d-r.github.io/learn-ai-tv/categories/automation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/learn-ai-tv/categories/automation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Anthropic&#39;s Model Context Protocol: The Future of AI Tool Integration</title>
-      <link>https://sunil-d-r.github.io/learn-ai-tv/courses/anthropic-agent-protocol/</link>
+      <link>/learn-ai-tv/courses/anthropic-agent-protocol/</link>
       <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://sunil-d-r.github.io/learn-ai-tv/courses/anthropic-agent-protocol/</guid>
+      <guid>/learn-ai-tv/courses/anthropic-agent-protocol/</guid>
       <description></description>
     </item>
     <item>
       <title>Scrape, Analyze, and Personalize: A Comprehensive Workflow</title>
-      <link>https://sunil-d-r.github.io/learn-ai-tv/courses/scrape-analyze-and-personalize-a-comprehensive-workflow/</link>
+      <link>/learn-ai-tv/courses/scrape-analyze-and-personalize-a-comprehensive-workflow/</link>
       <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://sunil-d-r.github.io/learn-ai-tv/courses/scrape-analyze-and-personalize-a-comprehensive-workflow/</guid>
+      <guid>/learn-ai-tv/courses/scrape-analyze-and-personalize-a-comprehensive-workflow/</guid>
       <description></description>
     </item>
   </channel>
