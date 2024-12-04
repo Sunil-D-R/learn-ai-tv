@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LMS Platform</title>
-    <link>/</link>
+    <link>https://sunil-d-r.github.io/learn-ai-tv/</link>
     <description>Recent content on LMS Platform</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sunil-d-r.github.io/learn-ai-tv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Anthropic&#39;s Model Context Protocol: The Future of AI Tool Integration</title>
-      <link>/courses/anthropic-agent-protocol/</link>
+      <link>https://sunil-d-r.github.io/learn-ai-tv/courses/anthropic-agent-protocol/</link>
       <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/courses/anthropic-agent-protocol/</guid>
+      <guid>https://sunil-d-r.github.io/learn-ai-tv/courses/anthropic-agent-protocol/</guid>
       <description></description>
     </item>
     <item>
       <title>Scrape, Analyze, and Personalize: A Comprehensive Workflow</title>
-      <link>/courses/scrape-analyze-and-personalize-a-comprehensive-workflow/</link>
+      <link>https://sunil-d-r.github.io/learn-ai-tv/courses/scrape-analyze-and-personalize-a-comprehensive-workflow/</link>
       <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/courses/scrape-analyze-and-personalize-a-comprehensive-workflow/</guid>
+      <guid>https://sunil-d-r.github.io/learn-ai-tv/courses/scrape-analyze-and-personalize-a-comprehensive-workflow/</guid>
       <description></description>
     </item>
     <item>
       <title>About Learn AI TV</title>
-      <link>/about/</link>
+      <link>https://sunil-d-r.github.io/learn-ai-tv/about/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>/about/</guid>
+      <guid>https://sunil-d-r.github.io/learn-ai-tv/about/</guid>
       <description>&lt;h1 id=&#34;our-mission&#34;&gt;Our Mission&lt;/h1&gt;&#xA;&lt;p&gt;Learn AI TV is dedicated to making artificial intelligence education accessible, practical, and engaging. Our platform focuses on delivering high-quality AI content that bridges the gap between theory and real-world application.&lt;/p&gt;&#xA;&lt;h1 id=&#34;what-sets-us-apart&#34;&gt;What Sets Us Apart&lt;/h1&gt;&#xA;&lt;h2 id=&#34;expert-led-content&#34;&gt;Expert-Led Content&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Courses created by industry professionals&lt;/li&gt;&#xA;&lt;li&gt;Real-world AI applications and case studies&lt;/li&gt;&#xA;&lt;li&gt;Up-to-date content reflecting the latest AI developments&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;practical-learning-experience&#34;&gt;Practical Learning Experience&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Hands-on projects and exercises&lt;/li&gt;&#xA;&lt;li&gt;Code examples and implementation guides&lt;/li&gt;&#xA;&lt;li&gt;Best practices for AI development&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;focus-areas&#34;&gt;Focus Areas&lt;/h1&gt;&#xA;&lt;h2 id=&#34;machine-learning-and-deep-learning&#34;&gt;Machine Learning and Deep Learning&lt;/h2&gt;&#xA;&lt;p&gt;Our comprehensive courses cover fundamental concepts to advanced techniques in ML and DL.&lt;/p&gt;</description>
     </item>
   </channel>
