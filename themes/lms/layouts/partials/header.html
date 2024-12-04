@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let searchIndex = [];
 
     // Fetch all course data
-    fetch('/index.json')
+    fetch('{{ "index.json" | relURL }}')
         .then(response => response.json())
         .then(data => {
             searchIndex = data;
