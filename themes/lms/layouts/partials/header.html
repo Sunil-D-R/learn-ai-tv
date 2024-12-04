@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="flex-grow">
                             <div class="font-medium text-gray-900">${result.title}</div>
                             <div class="text-sm text-gray-500 mt-1">${result.description}</div>
-                            ${result.categories.length > 0 ? `
+                            ${result.categories && result.categories.length > 0 ? `
                                 <div class="flex flex-wrap gap-2 mt-2">
                                     ${result.categories.map(category => `
                                         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary-100 text-primary-800">
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     `).join('')}
                                 </div>
                             ` : ''}
-                            ${result.tags.length > 0 ? `
+                            ${result.tags && result.tags.length > 0 ? `
                                 <div class="flex flex-wrap gap-2 mt-1">
                                     ${result.tags.map(tag => `
                                         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
@@ -199,15 +199,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close search results when clicking outside
     document.addEventListener('click', (e) => {
-        if (!searchResults.contains(e.target) && e.target !== searchInput) {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
             searchResults.classList.add('hidden');
         }
     });
 
-    // Show results when focusing on search input
-    searchInput.addEventListener('focus', () => {
-        if (searchInput.value.trim()) {
-            searchResults.classList.remove('hidden');
+    // Close search results when pressing Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            searchResults.classList.add('hidden');
         }
     });
 });
