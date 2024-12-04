@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on LMS Platform</title>
-    <link>/learn-ai-tv/categories/</link>
+    <link>./categories/</link>
     <description>Recent content in Categories on LMS Platform</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/learn-ai-tv/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automation</title>
-      <link>/learn-ai-tv/categories/automation/</link>
+      <link>./categories/automation/</link>
       <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/learn-ai-tv/categories/automation/</guid>
+      <guid>./categories/automation/</guid>
       <description></description>
     </item>
     <item>
       <title>B2B Strategies</title>
-      <link>/learn-ai-tv/categories/b2b-strategies/</link>
+      <link>./categories/b2b-strategies/</link>
       <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/learn-ai-tv/categories/b2b-strategies/</guid>
+      <guid>./categories/b2b-strategies/</guid>
       <description></description>
     </item>
     <item>
       <title>Web Scraping</title>
-      <link>/learn-ai-tv/categories/web-scraping/</link>
+      <link>./categories/web-scraping/</link>
       <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/learn-ai-tv/categories/web-scraping/</guid>
+      <guid>./categories/web-scraping/</guid>
       <description></description>
     </item>
   </channel>
