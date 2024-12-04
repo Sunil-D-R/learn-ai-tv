@@ -30,7 +30,7 @@
                         <div class="hidden group-hover:block absolute left-0 mt-0 w-64 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                             <div class="py-2 max-h-96 overflow-y-auto">
                                 {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-                                <a href="/categories/{{ $name | urlize }}/" class="block px-4 py-1.5 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary-600">
+                                <a href="{{ relURL (printf "categories/%s" ($name | urlize)) }}" class="block px-4 py-1.5 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary-600">
                                     {{ $name }} ({{ len $taxonomy }})
                                 </a>
                                 {{ end }}
