@@ -34,6 +34,7 @@
         {{ $courses := where .Site.RegularPages "Type" "courses" }}
         {{ $featured := where $courses ".Params.featured" true }}
         {{ $regular := where $courses ".Params.featured" "!=" true }}
+        {{ $regularSorted := sort $regular "Date" "desc" }}
         
         <!-- Featured Courses -->
         {{ range $featured }}
@@ -66,7 +67,7 @@
         {{ end }}
         
         <!-- Regular Courses -->
-        {{ range $regular }}
+        {{ range $regularSorted }}
         <div class="course-card regular transform hover:scale-105 transition-all duration-200 h-full" data-categories="{{ delimit .Params.categories "," }}">
             <a href="{{ .RelPermalink }}" class="block bg-white rounded-lg shadow-md overflow-hidden h-full flex flex-col">
                 {{ if .Params.thumbnail }}

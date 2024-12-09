@@ -1,6 +1,6 @@
-baseURL = "/"
+baseURL = "https://learnaitv.com/"
 languageCode = "en-us"
-title = "LMS Platform"
+title = "Learn AI TV"
 theme = "lms"
 
 [params]
