@@ -1,4 +1,4 @@
-baseURL = "https://sunil-d-r.github.io/learn-ai-tv"
+baseURL = "/"
 languageCode = "en-us"
 title = "LMS Platform"
 theme = "lms"

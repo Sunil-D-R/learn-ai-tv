@@ -35,9 +35,9 @@
         {{ $featured := where $courses ".Params.featured" true }}
         {{ $regular := where $courses ".Params.featured" "!=" true }}
         
-        <!-- Featured Courses (Always Visible) -->
+        <!-- Featured Courses -->
         {{ range $featured }}
-        <div class="course-card relative transform hover:scale-105 transition-all duration-200 h-full" data-categories="{{ delimit .Params.categories "," }}">
+        <div class="course-card featured transform hover:scale-105 transition-all duration-200 h-full" data-categories="{{ delimit .Params.categories "," }}">
             <div class="absolute top-2 right-2 z-10">
                 <span class="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-bold shadow-md">
                     Featured
@@ -65,9 +65,9 @@
         </div>
         {{ end }}
         
-        <!-- Regular Courses (Loaded Incrementally) -->
-        {{ range $index, $course := $regular }}
-        <div class="course-card transform hover:scale-105 transition-all duration-200 h-full" data-categories="{{ delimit .Params.categories "," }}" data-index="{{ $index }}">
+        <!-- Regular Courses -->
+        {{ range $regular }}
+        <div class="course-card regular transform hover:scale-105 transition-all duration-200 h-full" data-categories="{{ delimit .Params.categories "," }}">
             <a href="{{ .RelPermalink }}" class="block bg-white rounded-lg shadow-md overflow-hidden h-full flex flex-col">
                 {{ if .Params.thumbnail }}
                 <div class="aspect-w-16 aspect-h-9">
@@ -90,66 +90,10 @@
         </div>
         {{ end }}
     </div>
-
-    <!-- Infinite Scroll Sentinel -->
-    <div id="scroll-sentinel" class="h-4 w-full"></div>
 </div>
 
-<!-- Category Filter and Infinite Scroll Script -->
 <script>
-let currentlyShown = 9;
-const coursesPerLoad = 9;
-const totalRegularCourses = {{ len (where .Site.RegularPages "Type" "courses") }};
-let isLoading = false;
-let currentCategory = 'all';
-
-// Create Intersection Observer for infinite scroll
-const sentinel = document.getElementById('scroll-sentinel');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !isLoading) {
-            loadMoreCourses();
-        }
-    });
-}, {
-    root: null,
-    rootMargin: '200px',
-    threshold: 0.1
-});
-
-observer.observe(sentinel);
-
-function loadMoreCourses() {
-    if (isLoading) return;
-    isLoading = true;
-
-    const cards = document.querySelectorAll('.course-card[data-index]');
-    let shown = 0;
-    let newlyShown = 0;
-    
-    cards.forEach(card => {
-        const index = parseInt(card.dataset.index);
-        const categories = card.dataset.categories.split(',');
-        
-        if (index >= currentlyShown && 
-            index < currentlyShown + coursesPerLoad && 
-            (currentCategory === 'all' || categories.includes(currentCategory)) &&
-            card.style.display !== 'none') {
-            card.classList.remove('hidden');
-            newlyShown++;
-        }
-        if (!card.classList.contains('hidden') && card.style.display !== 'none') {
-            shown++;
-        }
-    });
-    
-    currentlyShown += coursesPerLoad;
-    isLoading = false;
-}
-
 function filterCourses(category) {
-    currentCategory = category;
-    currentlyShown = 9; // Reset pagination when filtering
     const courseCards = document.querySelectorAll('.course-card');
     const filterButtons = document.querySelectorAll('.category-filter');
     
@@ -164,26 +108,18 @@ function filterCourses(category) {
         }
     });
     
-    // Filter courses
-    let visibleCount = 0;
+    // Filter all courses (both featured and regular)
     courseCards.forEach(card => {
         const categories = card.dataset.categories.split(',');
-        const index = parseInt(card.dataset.index);
-        
         if (category === 'all' || categories.includes(category)) {
-            card.style.display = 'block';
-            if (index !== undefined) {
-                if (visibleCount < 9) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-                visibleCount++;
-            }
+            card.style.display = '';
         } else {
             card.style.display = 'none';
         }
     });
 }
+
+// Initialize with all courses visible
+filterCourses('all');
 </script>
 {{ end }}
